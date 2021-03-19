@@ -9,6 +9,7 @@ import {
 
 const AddForm = (props) => {
     const [state, setState] = useState({
+        id: Date.now(),
         name:"",
         position:"",
         nickname:"",
@@ -25,9 +26,9 @@ const AddForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "" || state.description === "") {
-            props.addError();
+            addError();
         } else {
-            props.addSmurf(state);
+            addSmurf(state);
         }
     }
 

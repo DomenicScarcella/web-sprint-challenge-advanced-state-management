@@ -23,7 +23,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                data: action.payload,
+                smurfs: action.payload,
                 error: ''
             };
         case FETCH_FAILURE:

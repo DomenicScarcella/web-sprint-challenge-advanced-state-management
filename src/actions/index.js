@@ -18,7 +18,7 @@ export const fetchSmurfs = () => {
             })
             .catch((err) => {
                 console.log(err)
-                dispatch({ type: FETCH_FAILURE, payload: err.res.data });
+                dispatch({ type: FETCH_FAILURE });
             });
     };
 };
@@ -27,9 +27,9 @@ export const addSmurf = (newSmurf) => {
     return (dispatch) => {
         console.log(newSmurf);
         axios
-            .post('http://localhost:3333/smurfs', addSmurf)
+            .post('http://localhost:3333/smurfs', newSmurf)
             .then((res) => {
-                dispatch({ type: FETCH_SUCCESS, payload: res.data })
+                dispatch({ type: ADD_SMURF, payload: res.data })
             });
     };
 };
