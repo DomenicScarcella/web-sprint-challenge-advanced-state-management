@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 
 import { fetchSmurfs } from '../actions';
 
-const SmurfList = (props) => {
-    if (props.isLoading) {
+const SmurfList = (state) => {
+    if (state.isLoading) {
         return <h1>Loading...</h1>;
     }
 
     return (
         <div className="listContainer">
-            {props.smurfs.map((smurf) => (
+            {state.smurfs.map((smurf) => (
                 <Smurf key={smurf.id} smurf={smurf} />
             ))}
         </div>
@@ -23,7 +23,6 @@ const mapStateToProps = (state) => {
     return {
         smurfs: state.smurfs,
         isLoading: state.isLoading,
-        error: state.error
     };
 };
 
