@@ -35,11 +35,13 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                smurfs: action.payload
+                smurfs: action.payload,
+                error: ''
             }
         case ADD_ERROR:
             return {
-                isLoading: true,
+                ...state,
+                isLoading: false,
                 error: 'All fields must be completed to successfully Add Smurf'
             }
         default:
